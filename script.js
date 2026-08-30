@@ -81,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
     applyThemeLabel(next);
   });
 
+
+
   /* ---------- 6. Scroll-reveal animations ---------- */
   if ("IntersectionObserver" in window) {
     var revealObserver = new IntersectionObserver(
@@ -204,4 +206,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
