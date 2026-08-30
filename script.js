@@ -81,26 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
     applyThemeLabel(next);
   });
 
-  /* ---------- 5. Background particles ---------- */
-  // Generates a small, fixed set of floating dots once on load — purely decorative.
-  var particleHost = document.getElementById("bgParticles");
-  var reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (particleHost && !reducedMotion) {
-    var particleCount = window.innerWidth < 720 ? 10 : 22;
-    for (var i = 0; i < particleCount; i++) {
-      var particle = document.createElement("span");
-      particle.className = "bg-particle";
-      particle.style.left = Math.random() * 100 + "%";
-      particle.style.bottom = "-10px";
-      particle.style.animationDuration = 14 + Math.random() * 16 + "s";
-      particle.style.animationDelay = Math.random() * 18 + "s";
-      particleHost.appendChild(particle);
-    }
-  }
-
   /* ---------- 6. Scroll-reveal animations ---------- */
   if ("IntersectionObserver" in window) {
     var revealObserver = new IntersectionObserver(
@@ -126,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ---------- 7. Skill card cursor-glow effect ---------- */
-  // Purely a visual touch: tracks the pointer so the card's glow follows the cursor.
   document.querySelectorAll(".skill-card").forEach(function (card) {
     card.addEventListener("mousemove", function (event) {
       var rect = card.getBoundingClientRect();
@@ -142,8 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* ---------- 7b. Hobby card tap support (touch devices) ---------- */
-  // :hover doesn't fire reliably on touch, so a tap toggles the same visual
-  // state that hover/focus-within already provides via the .is-tapped class.
   var hobbyCards = document.querySelectorAll(".hobby-card");
   hobbyCards.forEach(function (card) {
     card.addEventListener("click", function (event) {
@@ -227,3 +204,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
